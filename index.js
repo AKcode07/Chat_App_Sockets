@@ -8,6 +8,11 @@ const io = socketio(server);
 
 app.use('/', express.static(__dirname + "/public"));
 
-app.listen(3000, () => {
+io.on("connection", (socket) => {
+  console.log("New connection is up...");
+  console.log(socket.id);
+});
+
+server.listen(3000, () => {
   console.log(`Server started on port: 3000`);
 });
