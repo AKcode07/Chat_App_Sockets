@@ -11,6 +11,10 @@ app.use('/', express.static(__dirname + "/public"));
 io.on("connection", (socket) => {
   console.log("New connection is up...");
   console.log(socket.id);
+
+  // setInterval(() => {
+  //   socket.emit('from_server')
+  // }, 2000);
 });
 
 server.listen(3000, () => {
