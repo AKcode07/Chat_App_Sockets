@@ -7,7 +7,6 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-
 io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     console.log("joining a room", data.roomid);
