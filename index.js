@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const socketio = require('socket.io');
 
+const connect = require('./config/database-config');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -22,6 +23,8 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
+server.listen(3000, async () => {
   console.log(`Server started on port: 3000`);
+  await connect();
+  console.log(`MongoDB connected`);
 });
