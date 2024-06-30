@@ -27,10 +27,10 @@ app.set("view engine", "ejs");
 app.use("/", express.static(__dirname + "/public"));
 
 app.get("/chat/:roomid", async (req, res) => {
-  const chats = await Chat.find({
-    roomId: req.params.roomid,
-  }).select("content user");
-  console.log(chats);
+  // const chats = await Chat.find({
+  //   roomId: req.params.roomid,
+  // }).select("content user");
+  // console.log(chats);
   res.render("index", {
     name: "Ashwin",
     id: req.params.roomid,
